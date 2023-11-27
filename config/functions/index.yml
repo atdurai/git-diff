@@ -1,0 +1,2 @@
+get: ${file(config/functions/get.yml)}
+getDiff: ${file(config/functions/get-diff.yml)}

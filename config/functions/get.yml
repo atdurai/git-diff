@@ -1,0 +1,7 @@
+handler: src/handlers/git.commit
+events:
+  - http:
+      path: /repositories/{owner}/{repository}/commits/{oid}
+      method: get
+      cors: true
+      private: true

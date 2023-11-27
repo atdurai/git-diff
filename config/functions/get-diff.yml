@@ -1,0 +1,7 @@
+handler: src/handlers/git.diff
+events:
+  - http:
+      path: /repositories/{owner}/{repository}/commits/{oid}/diff
+      method: get
+      cors: true
+      private: true
