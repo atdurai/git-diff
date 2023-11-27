@@ -1,0 +1,18 @@
+name: aws
+runtime: nodejs16.x
+architecture: arm64
+region: ap-south-1
+stage: ${self:custom.stage}
+apiGateway:
+  shouldStartNameWithService: true
+  apiKeys:
+    - ${self:service}-${self:custom.stage}-apiKey
+layers: arn:aws:lambda:${aws:region}:${aws:accountId}:layer:prd-slsDependencies:latest
+deploymentBucket:
+  name: ${ssm:/petz/sls}
+environment:
+  SERVICE_NAME: ${self:service}
+  STAGE: ${self:provider.stage}
+  REGION: ${self:provider.region}
+  API_KEY: ${ssm:/git/atdurai/token}
+  API_URL: https://api.github.com

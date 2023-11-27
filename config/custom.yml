@@ -1,0 +1,12 @@
+prune:
+  automatic: true
+  number: 2
+esbuild:
+  minify: true
+  packager: yarn
+  external:
+    - jsonpath
+    - mongodb-client-encryption
+basename: ${opt:stage, 'tst'}-${self:service}
+table: ${opt:stage, 'tst'}-${self:service}
+stage: ${opt:stage, 'tst'}

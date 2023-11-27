@@ -1,0 +1,15 @@
+service: git-diff
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-esbuild
+  - serverless-latest-layer-version
+package:
+  individually: true
+  
+custom: ${file(config/custom.yml)}
+provider: ${file(config/provider.yml)}
+resources: ${file(config/resources.yml)}
+functions: ${file(config/functions/index.yml)}
+
